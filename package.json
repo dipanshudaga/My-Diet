@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",
+    "@supabase/supabase-js": "^2.109.0",
     "dexie": "^4.4.5",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -25,6 +26,7 @@
     "oxlint": "^1.79.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "vite-plugin-pwa": "^1.3.0"
   }
 }

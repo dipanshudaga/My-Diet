@@ -82,6 +82,7 @@ export interface Profile {
   activityDaysPerWeek: number
   goal: 'gain' | 'lose' | 'maintain'
   targets: NutrientTotals
+  updatedAt: string // ISO, for sync conflict resolution
 }
 
 export function sumNutrients(items: NutrientTotals[]): NutrientTotals {
