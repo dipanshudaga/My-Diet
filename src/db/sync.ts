@@ -112,10 +112,28 @@ export function getSyncUserId(): string | null {
   return userId
 }
 
-// Magic-link auth for the single owner account — no password/signup UI needed.
+// Single-owner app: only gmail.com addresses are accepted, so a stray/mistyped
+// email can't casually create a second account. This is a UI-level guard, not a
+// hard server-side block — RLS is what actually isolates each auth.uid()'s rows,
+// so even a deliberate sign-in with a different gmail.com address only ever sees
+// its own empty account, never the owner's data.
+export function isAllowedEmail(email: string): boolean {
+  return /^[^\s@]+@gmail\.com$/i.test(email.trim())
+}
+
+// Magic-link auth: click the link in the email, land back here signed in.
+// Supabase's default email template already contains a working link — no
+// template editing needed (that's gated behind custom SMTP, which a personal,
+// occasional-use app doesn't need). The one-time setup this DOES need: add this
+// app's URL to Authentication > URL Configuration > Redirect URLs in the
+// Supabase dashboard, or Supabase will refuse to redirect back here.
 export async function sendMagicLink(email: string): Promise<void> {
   if (!supabase) throw new Error('Supabase is not configured')
-  const { error } = await supabase.auth.signInWithOtp({ email })
+  if (!isAllowedEmail(email)) throw new Error('Only gmail.com addresses are supported for sign-in.')
+  const { error } = await supabase.auth.signInWithOtp({
+    email: email.trim(),
+    options: { emailRedirectTo: window.location.origin + import.meta.env.BASE_URL },
+  })
   if (error) throw error
 }
 

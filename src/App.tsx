@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import type { LogEntry, Profile } from './ai/schema'
 import { LogInput } from './components/LogInput/LogInput'
 import { TodayView } from './components/TodayView/TodayView'
+import { HistoryView } from './components/HistoryView/HistoryView'
 import { ProfileOnboarding, PROFILE_ID } from './components/ProfileOnboarding/ProfileOnboarding'
 import { SyncStatus } from './components/SyncStatus/SyncStatus'
 import { db } from './db/dexie'
@@ -16,6 +17,7 @@ export default function App() {
   const [knownFoodNames, setKnownFoodNames] = useState<string[]>([])
   const [profile, setProfile] = useState<Profile | null | undefined>(undefined)
   const [editingProfile, setEditingProfile] = useState(false)
+  const [view, setView] = useState<'today' | 'history'>('today')
 
   const refresh = useCallback(async () => {
     const all = await db.logEntries.toArray()
@@ -58,7 +60,26 @@ export default function App() {
       </div>
       <SyncStatus />
       <LogInput knownFoodNames={knownFoodNames} onSaved={refresh} />
-      <TodayView entries={entries} targets={profile.targets} onChanged={refresh} />
+
+      <div className="flex gap-1 border-b border-neutral-200">
+        {(['today', 'history'] as const).map((v) => (
+          <button
+            key={v}
+            onClick={() => setView(v)}
+            className={`px-3 py-1.5 text-sm font-medium capitalize ${
+              view === v ? 'border-b-2 border-emerald-600 text-neutral-900' : 'text-neutral-400 hover:text-neutral-600'
+            }`}
+          >
+            {v}
+          </button>
+        ))}
+      </div>
+
+      {view === 'today' ? (
+        <TodayView entries={entries} targets={profile.targets} onChanged={refresh} />
+      ) : (
+        <HistoryView targets={profile.targets} />
+      )}
     </div>
   )
 }

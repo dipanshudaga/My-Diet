@@ -4,11 +4,19 @@
 -- after creating the project. Mirrors the Dexie tables (see src/db/dexie.ts) as a
 -- durable backup — not the primary store, Dexie is. RLS scopes every row to the
 -- signed-in owner via auth.uid(), matching the single-owner magic-link auth in
--- src/db/sync.ts.
+-- src/db/sync.ts (gmail.com only, enforced client-side — RLS is what actually
+-- isolates each auth.uid()'s rows regardless).
 --
--- After running this, copy the project's URL and anon key (Project Settings > API)
--- into .env.local as VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY. Sync activates
--- automatically once those are set — nothing else in the app needs to change.
+-- Two setup steps outside this file:
+-- 1. Copy the project's URL and anon/publishable key (Project Settings > API —
+--    NOT the "secret" key, that's server-only and must never reach client code)
+--    into .env.local as VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY. Sync
+--    activates automatically once those are set.
+-- 2. Under Authentication > URL Configuration > Redirect URLs, add this app's
+--    URL (e.g. https://<you>.github.io/My-Diet/**) — Supabase refuses to
+--    redirect the magic-link click back to a URL that isn't allowlisted here.
+--    Uses Supabase's default email template as-is; template editing is gated
+--    behind custom SMTP, which a personal, occasional-use app doesn't need.
 
 create table if not exists log_entries (
   id text primary key,
