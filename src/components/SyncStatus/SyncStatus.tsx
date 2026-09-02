@@ -1,27 +1,12 @@
 import { useEffect, useState } from 'react'
 import { db } from '../../db/dexie'
-import { supabase, supabaseEnabled } from '../../db/supabase'
+import { supabaseEnabled } from '../../db/supabase'
 import { sendMagicLink, signOut } from '../../db/sync'
+import { useAuthEmail } from '../../hooks/useAuthEmail'
 
 export function SyncStatus() {
-  const [email, setEmail] = useState<string | null>(null)
-  const [checked, setChecked] = useState(false)
+  const { email, checked } = useAuthEmail()
   const [pending, setPending] = useState(0)
-
-  useEffect(() => {
-    if (!supabaseEnabled || !supabase) {
-      setChecked(true)
-      return
-    }
-    supabase.auth.getSession().then(({ data }) => {
-      setEmail(data.session?.user.email ?? null)
-      setChecked(true)
-    })
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      setEmail(session?.user.email ?? null)
-    })
-    return () => sub.subscription.unsubscribe()
-  }, [])
 
   useEffect(() => {
     if (!supabaseEnabled) return

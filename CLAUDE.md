@@ -36,7 +36,7 @@ This is not a multi-user product. Don't add auth complexity, multi-tenant data m
 - Repo: `https://github.com/dipanshudaga/My-Diet` — this is a **project page**, not a user page, so the deployed URL will be `https://dipanshudaga.github.io/My-Diet/`.
 - Vite config **must** set `base: '/My-Diet/'` or all asset paths will 404 on Pages.
 - Deploy via a GitHub Actions workflow (`.github/workflows/deploy.yml`) that builds on push to `main` and publishes to the `gh-pages` branch or Pages' native Actions deployment — either is fine, prefer the native `actions/deploy-pages` flow since it needs no extra branch.
-- This repo will contain personal diet and health-adjacent data (an asthma supplement is logged, for instance). If it isn't already, consider making the GitHub repo **private**. This doesn't block anything technically (GitHub Pages works from private repos on any plan that supports it), just flagging it once.
+- This repo is **public** (a deliberate choice — GitHub Pages on a private repo needs a paid plan, which this account doesn't have). Its seed data includes a daily supplement's label values (dosage, nutrients) alongside the food data — treat it the same as any other nutrition figure in the app, nothing framed as medical/diagnostic.
 
 ## Data & sync architecture
 
@@ -192,18 +192,18 @@ My-Diet/
 - **Phase 5 — Sync & offline.** Supabase schema + magic-link auth + sync queue, service worker via `vite-plugin-pwa`, installable manifest.
 - **Phase 6 — Polish.** Confidence badges on entries, known-product reuse/correction flow, edge cases (composite dishes, missing nutrients).
 
-## Seed diet reference (from the user's actual diet)
+## Seed diet reference (illustrative phrasing style)
 
-Use this as real seed data for Phase 0 and as few-shot examples in `prompts.ts` — it's the actual phrasing style to match, not generic examples.
+Use this as seed data for Phase 0 and as few-shot examples in `prompts.ts` — it's an example of the target phrasing style (Indian gym-goer, grams-based, mixed English/Hindi terms like "doodh"), not a literal record of one person's daily life. Nutrition label values below are product facts, kept for Phase 0's seed data.
 
-**Typical day:**
+**Example log sentences:**
 - One banana before the gym.
 - During the gym: 3g creatine in 500ml water.
-- After the gym: 1 NAC tablet (supplement, for asthma) — Carbamide Forte N-Acetyl L-Cysteine, 600mg NAC + 80mg Vitamin C per tablet, 1 tablet per serving.
+- After the gym: 1 multivitamin tablet (a discrete-dose supplement — stays in its natural unit, doesn't convert to grams).
 - 200g sprouts chaat — black chana, moth, white chana, moong, soybean, in decreasing proportion by weight (no exact split given — estimate).
 - Overnight oats, prepared the night before: 60g oats, 10 almonds (grated), 2 walnuts/akhrots (grated), 350g milk (doodh), plus one big spoon of peanut butter added before eating.
   - Oats label, per 100g: 369 kcal, 12.6g protein, 66.8g carbs, 10.4g fiber, 8g fat, 5mg sodium, 3.7mg iron, 115mg magnesium, 2.6mg zinc. Per 40g serving: 148 kcal, 5.0g protein, 26.7g carbs, 4.2g fiber, 3.2g fat.
-- After showering: protein shake — 2 scoops protein powder + 250g milk + 20g peanut butter, blended.
+- Protein shake — 2 scoops protein powder + 250g milk + 20g peanut butter, blended.
   - Protein powder label, per 100g / per 35g scoop: 386.0/135.1 kcal, 75.9g/26.5g protein (~26g protein per scoop per the label's own callout), 9.3g/3.2g carbs, <0.1g/<0.04g fiber, 5.0g/1.7g fat, 186.9mg/65.4mg sodium, 134.0mg/48.9mg cholesterol.
   - Peanut butter is a dark-chocolate-and-whey-protein variant (brand label was photographed but partially illegible on OCR — treat any exact numbers from it as low-confidence until re-scanned in-app).
 - Lunch: 2 chapatis, 200g curd.

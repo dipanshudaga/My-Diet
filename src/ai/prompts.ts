@@ -1,6 +1,7 @@
 // System prompt + few-shot examples for free-text food log extraction.
-// Few-shot examples use the user's own real phrasing (see CLAUDE.md "Seed diet
-// reference") so the model sees the exact sentence style it needs to handle.
+// Few-shot examples match the target phrasing style (see CLAUDE.md "Seed diet
+// reference") — Indian gym-goer, grams-based, mixed English/Hindi terms — so
+// the model sees the sentence style it needs to handle.
 
 export const EXTRACTION_SYSTEM_PROMPT = `You are a food diary parser. Convert the user's free-text food log into a JSON array of items.
 
@@ -56,8 +57,8 @@ export const EXTRACTION_FEW_SHOT: FewShotExample[] = [
     ]),
   },
   {
-    user: 'after the gym: 1 NAC tablet',
-    assistant: JSON.stringify([{ name: 'NAC tablet', quantity: 1, unit: 'tablet' }]),
+    user: 'after the gym: 1 multivitamin tablet',
+    assistant: JSON.stringify([{ name: 'multivitamin tablet', quantity: 1, unit: 'tablet' }]),
   },
 ]
 

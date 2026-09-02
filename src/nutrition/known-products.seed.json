@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "note": "Starter KnownProduct entries from the user's real, previously-scanned labels (see CLAUDE.md 'Seed diet reference'). Loaded into Dexie on first run in Phase 1. Peanut butter (dark chocolate & whey variant) is intentionally omitted — its label was photographed but came out illegible on OCR, so no real numbers exist yet; add it once re-scanned in-app rather than guessing values for a health-tracking product."
+    "note": "Starter KnownProduct entries from real, previously-scanned nutrition labels (see CLAUDE.md 'Seed diet reference'). Loaded into Dexie on first run in Phase 1. Peanut butter (dark chocolate & whey variant) is intentionally omitted — its label was photographed but came out illegible on OCR, so no real numbers exist yet; add it once re-scanned in-app rather than guessing values for a health-tracking product. A discrete-dose supplement (tablet/capsule) example was removed from this seed set — add your own via the in-app label-scan flow (Phase 3) rather than one being hardcoded here."
   },
   "products": [
     {
@@ -21,15 +21,6 @@
         "sodium": 186.9, "cholesterol": 134.0
       },
       "source": "ocr",
-      "lastUpdated": "2026-09-01T00:00:00.000Z"
-    },
-    {
-      "id": "seed-nac-carbamide-forte",
-      "name": "Carbamide Forte N-Acetyl L-Cysteine (NAC) 600mg + Vitamin C 80mg — values per 1 tablet, not per 100g",
-      "per100g": {
-        "vitaminC": 80
-      },
-      "source": "manual",
       "lastUpdated": "2026-09-01T00:00:00.000Z"
     }
   ]

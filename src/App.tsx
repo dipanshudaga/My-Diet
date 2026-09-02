@@ -5,8 +5,12 @@ import { TodayView } from './components/TodayView/TodayView'
 import { HistoryView } from './components/HistoryView/HistoryView'
 import { ProfileOnboarding, PROFILE_ID } from './components/ProfileOnboarding/ProfileOnboarding'
 import { SyncStatus } from './components/SyncStatus/SyncStatus'
+import { useAuthEmail } from './hooks/useAuthEmail'
+import { supabaseEnabled } from './db/supabase'
 import { db } from './db/dexie'
 import { listIfctFoods } from './nutrition/ifct/ifct'
+
+const SKIP_SYNC_KEY = 'my-diet:skip-sync-prompt'
 
 function isToday(isoTimestamp: string): boolean {
   return new Date(isoTimestamp).toDateString() === new Date().toDateString()
@@ -18,6 +22,8 @@ export default function App() {
   const [profile, setProfile] = useState<Profile | null | undefined>(undefined)
   const [editingProfile, setEditingProfile] = useState(false)
   const [view, setView] = useState<'today' | 'history'>('today')
+  const [skippedSignIn, setSkippedSignIn] = useState(() => localStorage.getItem(SKIP_SYNC_KEY) === 'true')
+  const { email: authEmail, checked: authChecked } = useAuthEmail()
 
   const refresh = useCallback(async () => {
     const all = await db.logEntries.toArray()
@@ -32,7 +38,29 @@ export default function App() {
     db.profile.get(PROFILE_ID).then((p) => setProfile(p ?? null))
   }, [refresh])
 
-  if (profile === undefined) return null // loading
+  if (profile === undefined || !authChecked) return null // loading
+
+  // Sign-in gates everything else while it's undecided — but only ever gates,
+  // never blocks: "continue without syncing" keeps the app fully usable
+  // offline/local-only, per CLAUDE.md's local-first requirement. Once skipped
+  // (persisted) or signed in, this never shows again on this device.
+  if (supabaseEnabled && !authEmail && !skippedSignIn) {
+    return (
+      <div className="mx-auto max-w-2xl space-y-4 p-4">
+        <h1 className="text-xl font-bold text-neutral-900">My Diet</h1>
+        <SyncStatus />
+        <button
+          onClick={() => {
+            localStorage.setItem(SKIP_SYNC_KEY, 'true')
+            setSkippedSignIn(true)
+          }}
+          className="text-xs text-neutral-400 hover:text-neutral-600"
+        >
+          Continue without syncing
+        </button>
+      </div>
+    )
+  }
 
   if (!profile || editingProfile) {
     return (
