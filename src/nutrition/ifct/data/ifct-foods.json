@@ -1,0 +1,142 @@
+{
+  "_meta": {
+    "source": "Indian Food Composition Tables (IFCT) 2017, National Institute of Nutrition (ICMR)",
+    "sourceUrl": "https://www.nin.res.in/ebooks/IFCT2017.pdf",
+    "note": "All values are per 100g edible portion, taken directly from IFCT 2017 Tables 1 (Proximate Principles & Dietary Fibre), 2 (Water Soluble Vitamins) and 5 (Minerals & Trace Elements). Fields not listed for a food were below detectable limit or not analyzed in IFCT for that food (e.g. curd/dahi is not in IFCT 2017 at all — falls through to Open Food Facts/model estimation per resolve.ts). This is a curated subset covering the foods in the user's actual diet, not the full ~528-food IFCT dataset.",
+    "units": "kcal; g for protein/carbs/fat/fiber; mg for sodium/vitaminC/b1/b2/b3/b6/calcium/iron/magnesium/zinc/potassium/phosphorus/copper; µg for folate/selenium"
+  },
+  "foods": [
+    {
+      "id": "ifct-a019",
+      "ifctCode": "A019",
+      "name": "Wheat flour, atta",
+      "group": "Cereals and Millets",
+      "per100g": {
+        "kcal": 320.3, "protein": 10.57, "carbs": 64.17, "fat": 1.53, "fiber": 11.36,
+        "sodium": 2.04, "b1": 0.42, "b2": 0.15, "b3": 2.37, "b6": 0.25, "folate": 29.22,
+        "calcium": 30.94, "iron": 4.10, "magnesium": 125, "zinc": 2.85,
+        "potassium": 311, "phosphorus": 315, "selenium": 53.12, "copper": 0.48
+      }
+    },
+    {
+      "id": "ifct-b002",
+      "ifctCode": "B002",
+      "name": "Bengal gram, whole (chana — desi/kabuli both mapped here, IFCT does not distinguish)",
+      "group": "Grain Legumes",
+      "per100g": {
+        "kcal": 287.0, "protein": 18.77, "carbs": 39.56, "fat": 5.11, "fiber": 25.22,
+        "sodium": 26.56, "b1": 0.37, "b2": 0.24, "b3": 2.10, "b6": 0.36, "folate": 233,
+        "calcium": 150, "iron": 6.78, "magnesium": 160, "zinc": 3.37,
+        "potassium": 935, "phosphorus": 267, "selenium": 41.23, "copper": 0.85
+      }
+    },
+    {
+      "id": "ifct-b011",
+      "ifctCode": "B011",
+      "name": "Green gram, whole (moong)",
+      "group": "Grain Legumes",
+      "per100g": {
+        "kcal": 293.7, "protein": 22.53, "carbs": 46.13, "fat": 1.14, "fiber": 17.04,
+        "sodium": 12.48, "b1": 0.45, "b2": 0.27, "b3": 2.16, "b6": 0.35, "folate": 145,
+        "calcium": 92.43, "iron": 4.89, "magnesium": 198, "zinc": 2.67,
+        "potassium": 1177, "phosphorus": 353, "selenium": 23.32, "copper": 1.00
+      }
+    },
+    {
+      "id": "ifct-b016",
+      "ifctCode": "B016",
+      "name": "Moth bean",
+      "group": "Grain Legumes",
+      "per100g": {
+        "kcal": 308.6, "protein": 19.75, "carbs": 52.09, "fat": 1.76, "fiber": 15.12,
+        "sodium": 26.34, "b1": 0.45, "b2": 0.09, "b3": 1.87, "b6": 0.16, "folate": 349,
+        "calcium": 154, "iron": 7.90, "magnesium": 205, "zinc": 1.92,
+        "potassium": 1356, "phosphorus": 362, "selenium": 18.82, "copper": 0.64
+      }
+    },
+    {
+      "id": "ifct-b024",
+      "ifctCode": "B024",
+      "name": "Soybean, brown",
+      "group": "Grain Legumes",
+      "per100g": {
+        "kcal": 381.5, "protein": 35.58, "carbs": 12.79, "fat": 19.82, "fiber": 21.55,
+        "sodium": 2.07, "b1": 0.59, "b2": 0.24, "b3": 2.12, "b6": 0.43, "folate": 297,
+        "calcium": 239, "iron": 8.29, "magnesium": 259, "zinc": 4.01,
+        "potassium": 1613, "phosphorus": 483, "selenium": 19.00, "copper": 1.29
+      }
+    },
+    {
+      "id": "ifct-b025",
+      "ifctCode": "B025",
+      "name": "Soybean, white",
+      "group": "Grain Legumes",
+      "per100g": {
+        "kcal": 377.4, "protein": 37.80, "carbs": 10.16, "fat": 19.42, "fiber": 22.63,
+        "sodium": 2.83, "b1": 0.61, "b2": 0.23, "b3": 2.28, "b6": 0.45, "folate": 288,
+        "calcium": 195, "iron": 8.22, "magnesium": 189, "zinc": 3.47,
+        "potassium": 1634, "phosphorus": 494, "selenium": 16.85, "copper": 0.79
+      }
+    },
+    {
+      "id": "ifct-e012",
+      "ifctCode": "E012",
+      "name": "Banana, ripe, robusta",
+      "group": "Fruits",
+      "per100g": {
+        "kcal": 105.2, "protein": 1.23, "carbs": 23.63, "fat": 0.33, "fiber": 1.94,
+        "sodium": 0.85, "vitaminC": 4.76, "b1": 0.01, "b2": 0.03, "b3": 0.47, "b6": 0.44, "folate": 16.81,
+        "calcium": 5.07, "iron": 0.28, "magnesium": 34.98, "zinc": 0.14,
+        "potassium": 306, "phosphorus": 24.32, "copper": 0.13
+      }
+    },
+    {
+      "id": "ifct-h001",
+      "ifctCode": "H001",
+      "name": "Almond",
+      "group": "Nuts and Oil Seeds",
+      "per100g": {
+        "kcal": 609.2, "protein": 18.41, "carbs": 3.04, "fat": 58.49, "fiber": 13.06,
+        "sodium": 1.50, "vitaminC": 0.74, "b1": 0.15, "b2": 0.26, "b3": 3.71, "b6": 0.09, "folate": 36.46,
+        "calcium": 228, "iron": 4.59, "magnesium": 318, "zinc": 3.50,
+        "potassium": 699, "phosphorus": 446, "selenium": 3.61, "copper": 1.08
+      }
+    },
+    {
+      "id": "ifct-h021",
+      "ifctCode": "H021",
+      "name": "Walnut",
+      "group": "Nuts and Oil Seeds",
+      "per100g": {
+        "kcal": 671.3, "protein": 14.92, "carbs": 10.14, "fat": 64.27, "fiber": 5.39,
+        "sodium": 1.33, "vitaminC": 0.88, "b1": 0.40, "b2": 0.12, "b3": 0.86, "b6": 0.80, "folate": 57.95,
+        "calcium": 105, "iron": 3.21, "magnesium": 180, "zinc": 2.94,
+        "potassium": 457, "phosphorus": 400, "selenium": 6.53, "copper": 1.52
+      }
+    },
+    {
+      "id": "ifct-l001",
+      "ifctCode": "L001",
+      "name": "Milk, buffalo, whole",
+      "group": "Milk and Milk Products",
+      "per100g": {
+        "kcal": 107.3, "protein": 3.68, "carbs": 8.39, "fat": 6.58,
+        "sodium": 30.10, "vitaminC": 2.37, "b1": 0.05, "b2": 0.13, "b3": 0.07, "b6": 0.04, "folate": 8.57,
+        "calcium": 121, "iron": 0.16, "magnesium": 10.05, "zinc": 0.30,
+        "potassium": 109, "phosphorus": 86.94, "selenium": 1.45, "copper": 0.03
+      }
+    },
+    {
+      "id": "ifct-l002",
+      "ifctCode": "L002",
+      "name": "Milk, cow, whole",
+      "group": "Milk and Milk Products",
+      "per100g": {
+        "kcal": 72.9, "protein": 3.26, "carbs": 4.94, "fat": 4.48,
+        "sodium": 25.46, "vitaminC": 2.01, "b1": 0.03, "b2": 0.11, "b3": 0.08, "b6": 0.04, "folate": 7.03,
+        "calcium": 118, "iron": 0.15, "magnesium": 8.28, "zinc": 0.33,
+        "potassium": 115, "phosphorus": 96.56, "selenium": 0.95, "copper": 0.03
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "note": "Starter KnownProduct entries from the user's real, previously-scanned labels (see CLAUDE.md 'Seed diet reference'). Loaded into Dexie on first run in Phase 1. Peanut butter (dark chocolate & whey variant) is intentionally omitted — its label was photographed but came out illegible on OCR, so no real numbers exist yet; add it once re-scanned in-app rather than guessing values for a health-tracking product."
+  },
+  "products": [
+    {
+      "id": "seed-oats",
+      "name": "Oats (rolled)",
+      "per100g": {
+        "kcal": 369, "protein": 12.6, "carbs": 66.8, "fiber": 10.4, "fat": 8,
+        "sodium": 5, "iron": 3.7, "magnesium": 115, "zinc": 2.6
+      },
+      "source": "ocr",
+      "lastUpdated": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-protein-powder",
+      "name": "Whey protein powder",
+      "per100g": {
+        "kcal": 386.0, "protein": 75.9, "carbs": 9.3, "fiber": 0.1, "fat": 5.0,
+        "sodium": 186.9, "cholesterol": 134.0
+      },
+      "source": "ocr",
+      "lastUpdated": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-nac-carbamide-forte",
+      "name": "Carbamide Forte N-Acetyl L-Cysteine (NAC) 600mg + Vitamin C 80mg — values per 1 tablet, not per 100g",
+      "per100g": {
+        "vitaminC": 80
+      },
+      "source": "manual",
+      "lastUpdated": "2026-09-01T00:00:00.000Z"
+    }
+  ]
+}
